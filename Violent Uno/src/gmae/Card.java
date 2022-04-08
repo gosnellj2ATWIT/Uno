@@ -3,7 +3,6 @@ package gmae;
 public class Card {
 	private final Color color;
 	private final Value value;
-	private boolean isflipped;
 	enum Color {
 		Red, Blue, Green, Yellow, Wild;
 		private static final Color[] colors = Color.values();
