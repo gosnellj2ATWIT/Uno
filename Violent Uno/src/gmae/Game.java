@@ -27,7 +27,7 @@ public class Game {
 		direction = false;
 		
 		playerHand = new ArrayList<ArrayList<Card>>();
-		//fills hands
+		//fills hands a
 		for(int i = 0; i<pIDs.length; i++) {
 			// ArrayList<Card> hand = new ArrayList<Card>(Array.asList(deck.drawCard(7)));
 			playerHand.add(hand);
