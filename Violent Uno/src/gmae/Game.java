@@ -29,10 +29,11 @@ public class Game {
 		playerHand = new ArrayList<ArrayList<Card>>();
 		//fills hands
 		for(int i = 0; i<pIDs.length; i++) {
-			ArrayList<Card> hand = new ArrayList<Card>(Array.asList(deck.drawCard(7)));
+			// ArrayList<Card> hand = new ArrayList<Card>(Array.asList(deck.drawCard(7)));
 			playerHand.add(hand);
 		}
 	}
+	
 	
 	
 	

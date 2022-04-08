@@ -1,6 +1,7 @@
 package gmae;
 
 public class Card {
+	//comment so I can push
 	private final Color color;
 	private final Value value;
 	enum Color {

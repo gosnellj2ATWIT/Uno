@@ -74,7 +74,7 @@ public class Deck {
 		if(n>cardsInDeck) {
 			throw new IllegalArgumentException("not enough cards, only: "+cardsInDeck+" cards in the deck");
 		}
-		//makes an array of cards on the top ro return
+		//makes an array of cards on the top ro return a
 		Card[] drawn = new Card[n];
 		
 		for(int i = 0; i<n; i++) {
