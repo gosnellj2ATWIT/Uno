@@ -11,6 +11,7 @@ public class Deck {
 	
 	public Deck() {
 		cards = new Card[108];
+		reset();
 	}
 	public void reset() {
 		Card.Color[] colors = Card.Color.values();

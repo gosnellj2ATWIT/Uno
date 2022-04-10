@@ -13,8 +13,8 @@ public class Game {
 	
 	private ArrayList<Card> stockpile;
 	
-	private Card.Color validColor;
-	private Card.Value validValue;
+	Card.Color validColor;
+	Card.Value validValue;
 	//reverse card direction
 	boolean direction;
 	
@@ -46,10 +46,9 @@ public class Game {
 			start(game);
 		}
 		stockpile.add(card);
+		
 	}
-	public Card getTopCard() {
-		return new Card(validColor, validValue);
-	}
+
 	public boolean isGameOver() {
 		for (String player : this.playerIDs) {
 			if (hasEmptyHand(player)) {
