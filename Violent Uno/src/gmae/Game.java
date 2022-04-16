@@ -107,10 +107,10 @@ public class Game {
 	}
 	public void subitPlayerCard(String pid, Card card, Card.Color declairedColor, int cardindex) {
 		if(validCardPlay(card)) {
-			getPlayersHand(pid).remove(cardindex);//error
 			validColor = card.getColor();
 			validValue = card.getValue();
 			stockpile.add(card);
+			getPlayersHand(pid).remove(cardindex);
 			if (direction == false) {
 				currentPlayer= (currentPlayer+1)%playerIDs.length;
 			}else {
@@ -120,10 +120,10 @@ public class Game {
 				}
 			}
 		}else if(Card.Color.Wild == card.getColor()|| Card.Value.WildDrawFour == card.getValue()) {
-			getPlayersHand(pid).remove(cardindex);//check this, might error
 			validColor = declairedColor;
 			validValue = card.getValue();
 			stockpile.add(card);
+			getPlayersHand(pid).remove(cardindex);
 			if (direction == false) {
 				currentPlayer= (currentPlayer+1)%playerIDs.length;
 			}else {

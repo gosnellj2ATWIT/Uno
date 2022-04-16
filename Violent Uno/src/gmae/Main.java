@@ -40,6 +40,7 @@ public class Main {
 			}else if(thingcolor==4) {
 				color = Card.Color.Yellow;
 			}
+			mygame.subitPlayerCard(mygame.getCurrentPlayer(), hand.get(thing), color, thing);
 		}else {
 			color = hand.get(thing).getColor();
 			mygame.subitPlayerCard(mygame.getCurrentPlayer(), hand.get(thing), color, thing);
