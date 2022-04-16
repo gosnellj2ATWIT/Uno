@@ -48,7 +48,23 @@ public class Game {
 		stockpile.add(card);
 		
 	}
-
+	public String[] getPlayers() {
+		return playerIDs;
+	}
+	public ArrayList<Card> getPlayersHand(String pid){
+		int index = Arrays.asList(playerIDs).indexOf(pid);
+		return playerHand.get(index);
+	}
+	public int getPlayersHandSize(String pid) {
+		return getPlayersHand(pid).size();
+	}
+	public Card getPlayerCard(String pid, int choice) {
+		ArrayList<Card> hand = getPlayersHand(pid);
+		return hand.get(choice);
+	}
+	public boolean hasEmptyHand(String pid) {
+		return getPlayersHand(pid).isEmpty();
+	}
 	public boolean isGameOver() {
 		for (String player : this.playerIDs) {
 			if (hasEmptyHand(player)) {
@@ -67,23 +83,7 @@ public class Game {
 		}
 		return this.playerIDs[index];
 	}
-	public String[] getPlayers() {
-		return playerIDs;
-	}
-	public ArrayList<Card> getPlayersHand(String pid){
-		int index = Arrays.asList(playerIDs).indexOf(pid);
-		return playerHand.get(index);
-	}
-	public int getPlayersHandSize(String pid) {
-		return getPlayersHand(pid).size();
-	}
-	public Card getPlayerCard(String pid, int choice) {
-		ArrayList<Card> hand = getPlayersHand(pid);
-		return hand.get(choice);
-	}
-	public boolean hasEmptyHand(String pid) {
-		return getPlayersHand(pid).isEmpty();
-	}
+
 	public boolean validCardPlay(Card card) {
 		return card.getColor() == validColor || card.getValue() == validValue;
 	}
@@ -105,9 +105,9 @@ public class Game {
 	public void setCardColor(Card.Color color) {
 		validColor = color;
 	}
-	public void subitPlayerCard(String pid, Card card, Card.Color declairedColor) {
+	public void subitPlayerCard(String pid, Card card, Card.Color declairedColor, int cardindex) {
 		if(validCardPlay(card)) {
-			playerHand.remove(card);//check this, might error
+			getPlayersHand(pid).remove(cardindex);//error
 			validColor = card.getColor();
 			validValue = card.getValue();
 			stockpile.add(card);
@@ -120,7 +120,7 @@ public class Game {
 				}
 			}
 		}else if(Card.Color.Wild == card.getColor()|| Card.Value.WildDrawFour == card.getValue()) {
-			playerHand.remove(card);//check this, might error
+			getPlayersHand(pid).remove(cardindex);//check this, might error
 			validColor = declairedColor;
 			validValue = card.getValue();
 			stockpile.add(card);
@@ -150,7 +150,7 @@ public class Game {
 			getPlayersHand(pid).add(deck.drawCard());
 			getPlayersHand(pid).add(deck.drawCard());
 			getPlayersHand(pid).add(deck.drawCard());
-			System.out.println(pid+" got two cards");
+			System.out.println(pid+" got four cards");
 		}
 		if (card.getValue()==Card.Value.Skip) {
 			System.out.println(pid+"got skipped");

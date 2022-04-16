@@ -16,18 +16,20 @@ public class Main {
 	Card.Color color = null;
 	
 	while(mygame.isGameOver()==false) {
-		System.out.printf("play card:%s %s%n", mygame.validColor, mygame.validValue);
+		System.out.printf("play card: %s %s%n", mygame.validColor, mygame.validValue);
 		System.out.printf("%s is up%n", mygame.getCurrentPlayer());
 		ArrayList<Card> hand = mygame.getPlayersHand(mygame.getCurrentPlayer());
 		System.out.printf("Player hand: %n");
 		for(int i=0; i< mygame.getPlayersHand(mygame.getCurrentPlayer()).size();i++ ) {
-			System.out.printf("|%s %s| ", hand.get(i).getColor(), hand.get(i).getValue());
+			System.out.printf("|%s %s (%d)|", hand.get(i).getColor(), hand.get(i).getValue(), i);
 		}
 		
-		System.out.printf("%nput a number a card to play or -1 to draw");
+		System.out.printf("%nput a number a card to play or -1 to draw%n");
 		thing = keyboard.nextInt();
-		if(Card.Color.Wild==hand.get(thing).getColor()) {
-			System.out.printf("Give us a color then: 1=Red, 2=Blue, 3=Green, 4=Yellow");
+		if (thing <0 ) {
+			mygame.submitDraw(mygame.getCurrentPlayer());
+		}else if(Card.Color.Wild==hand.get(thing).getColor()) {
+			System.out.printf("Give us a color then: 1=Red, 2=Blue, 3=Green, 4=Yellow%n");
 			thingcolor = keyboard.nextInt();
 			if(thingcolor==1) {
 				color = Card.Color.Red;
@@ -40,13 +42,12 @@ public class Main {
 			}
 		}else {
 			color = hand.get(thing).getColor();
+			mygame.subitPlayerCard(mygame.getCurrentPlayer(), hand.get(thing), color, thing);
 		}
-		if (thing <0 ) {
-			mygame.submitDraw(mygame.getCurrentPlayer());
-		}else {
-			
-			mygame.subitPlayerCard(mygame.getCurrentPlayer(), hand.get(thing), color);
-		}
+	
+
+		
+
 		System.out.printf("%s is up", mygame.getCurrentPlayer());
 	}
 
