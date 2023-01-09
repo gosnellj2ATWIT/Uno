@@ -153,7 +153,7 @@ public class Game {
 			System.out.println(pid+" got four cards");
 		}
 		if (card.getValue()==Card.Value.Skip) {
-			System.out.println(pid+"got skipped");
+			System.out.println(pid+" got skipped");
 			if (direction == false) {
 				currentPlayer= (currentPlayer+1)%playerIDs.length;
 			}else {

@@ -49,7 +49,7 @@ public class Main {
 
 		
 
-		System.out.printf("%s is up", mygame.getCurrentPlayer());
+		//System.out.printf("%s is up", mygame.getCurrentPlayer());
 	}
 
 }}

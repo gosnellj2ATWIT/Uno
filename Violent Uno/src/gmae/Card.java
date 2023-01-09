@@ -11,7 +11,7 @@ public class Card {
 		}
 	}
 	enum Value {
-		Zero, One, Two, Tree, Four, Five, Six, Seven, Eight, Nine, DrawTwo, Skip, Reverse, Wild, WildDrawFour;
+		Zero, One, Two, Three, Four, Five, Six, Seven, Eight, Nine, DrawTwo, Skip, Reverse, Wild, WildDrawFour;
 		private static final Value[] values = Value.values();
 		public static Value getValue(int i) {
 			return Value.values[i];
